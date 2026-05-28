@@ -18,7 +18,8 @@ models.Base.metadata.create_all(bind=engine)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "https://data-vault--adityayadav7459.replit.app", # Your live Replit UI
+        "https://data-vault--adityayadav7459.replit.app",# Your live Replit UI
+        "https://data-vault--adityayadav7459.replit.app/",
         "http://localhost:3000"
     ],
     allow_credentials=True,
@@ -28,12 +29,6 @@ app.add_middleware(
 
 security_lock = HTTPBearer()
 
-def get_db():
-    db = SessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()
 
 # ... (Leave all your routes exactly as they are below this!)
 def get_db():
